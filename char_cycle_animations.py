@@ -45,29 +45,14 @@ def letter_cycle(string, speed):
     print(currentWord)
     return
 
-def letter_sort(string, speed):
-    finalWord = string
-    scrambled = "".join(random.sample(finalWord, len(finalWord)))
-    for i in range(len(finalWord)):
-        while finalWord[i] != scrambled[i]:
-            scrambled = scrambled[:i] + scrambled[i+1:] + scrambled[i]
-            print(scrambled, end="\r", flush=True)
-            sleep(speed)
-    print(scrambled)
-    return
-
-        
-
 if __name__ == "__main__":
     input_string = input("Enter a string: ")
     speed = float(input("Enter a speed: "))
-    choice = int(input("Which print animation would you like to see? (procedural, letter_cycle, letter_sort)(1/2/3): "))
+    choice = int(input("Which print animation would you like to see? (procedural, letter_cycle, letter_sort)(1/2): "))
     if choice == 1:
         procedural(input_string, speed)
     elif choice == 2:
         letter_cycle(input_string, speed)
-    elif choice == 3:
-        letter_sort(input_string, speed)
     else:
         print("Invalid choice")
         exit(1)
